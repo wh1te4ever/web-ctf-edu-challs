@@ -66,6 +66,8 @@ def doCrawl_server1(chal, url):
 	crawler = Crawler()
 	driver = crawler.driver
 	try:
+		#XXX: FIXED "Requesting an administrator to read article" function
+		#http://arang_client domain doesn't actually exist... so login not works! maybe mistake of author?
 		_url = ""
 		pattern = r"https?://([\w.-]+)(:\d+)?"
 		match = re.search(pattern, url)
