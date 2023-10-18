@@ -26,6 +26,7 @@ ENV csrf1_flag flag{this_is_csrf1_flag}
 ENV csrf2_flag flag{this_is_csrf2_flag}
 ENV xsleak_flag flag{this_is_xsleak_flag}
 
+RUN ln -s /usr/bin/chromium-browser /usr/bin/chromium
 RUN chmod +x /tmp/chromedriver
 ENTRYPOINT /app/entrypoint.sh && /bin/bash
 CMD ["true"]

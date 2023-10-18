@@ -16,6 +16,22 @@
     },
     "w": {
         "password": "50e721e49c013f00c62cf59f2163542a9d8df02464efeb615d31051b0fddc326",
+        "solved": [
+            0,
+            12,
+            7
+        ],
+        "lastsolved": 1697627899.4770737
+    },
+    "wh1te4ever": {
+        "password": "9af15b336e6a9619928537df30b2e6a2376569fcf9d7e773eccede65606529a0",
+        "solved": [
+            0
+        ],
+        "lastsolved": 1697619309.4701355
+    },
+    "a": {
+        "password": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
         "solved": [],
         "lastsolved": 0
     }
