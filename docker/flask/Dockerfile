@@ -15,6 +15,7 @@ RUN apt-get install -y net-tools
 RUN apt-get install -y procps
 RUN pip3 install pycurl pymysql flask requests selenium
 RUN pip3 install git+https://github.com/SergeyPirogov/webdriver_manager
+RUN pip3 install regex
 
 ENV admin_password [redacted]
 
