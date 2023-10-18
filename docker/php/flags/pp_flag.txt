@@ -1,1 +1,1 @@
-flag{[REDACTED]}
+flag{this_is_prototype_pollution_flag}

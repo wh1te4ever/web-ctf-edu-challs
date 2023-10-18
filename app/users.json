@@ -3,5 +3,20 @@
         "password": "123123",
         "solved": [],
         "lastsolved": 1797214493
+    },
+    "aa": {
+        "password": "961b6dd3ede3cb8ecbaacbd68de040cd78eb2ed5889130cceb4c49268ea4d506",
+        "solved": [],
+        "lastsolved": 0
+    },
+    "roronoa": {
+        "password": "58275964621b67a2c08208510f1ef14dc9e4e915f4de920b1ab0563655da1eff",
+        "solved": [],
+        "lastsolved": 0
+    },
+    "w": {
+        "password": "50e721e49c013f00c62cf59f2163542a9d8df02464efeb615d31051b0fddc326",
+        "solved": [],
+        "lastsolved": 0
     }
 }

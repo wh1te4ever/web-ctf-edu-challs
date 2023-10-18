@@ -8,8 +8,11 @@ from selenium.webdriver.chrome.service import Service
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.remote.remote_connection import LOGGER
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.core.os_manager import ChromeType
+from urllib.parse import urlparse
 import flask
 import traceback, os, time
+import re
 
 app = flask.Flask(__name__)
 app.secret_key = os.urandom(16)
@@ -38,7 +41,10 @@ class Crawler:
 		options.add_experimental_option("excludeSwitches", ["enable-automation"])
 		options.add_experimental_option("useAutomationExtension", False)
 
-		self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+		#Use chromium-browser for arm64
+		#chromedriver from #https://github.com/electron/electron/releases/tag/v24.4.0. since chromedriver has amd64 build, so needs to be change.
+		service = Service('/tmp/chromedriver')
+		self.driver = webdriver.Chrome(service=service, options=options)
 		self.driver.request_interceptor = interceptor
 		self.driver.implicitly_wait(3)
 		self.driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
@@ -60,7 +66,13 @@ def doCrawl_server1(chal, url):
 	crawler = Crawler()
 	driver = crawler.driver
 	try:
-		crawler.req(f'http://arang_client:{server1_challs[chal]}/login')
+		_url = ""
+		pattern = r"https?://([\w.-]+)(:\d+)?"
+		match = re.search(pattern, url)
+		if match:
+			_url = match.group(1)
+
+		crawler.req(f'http://{_url}:{server1_challs[chal]}/login')
 
 		driver.find_element(By.ID,"userid").send_keys(ADMIN_ID)
 		driver.find_element(By.ID,"userpw").send_keys(ADMIN_PASS)
